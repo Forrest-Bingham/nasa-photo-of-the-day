@@ -13,7 +13,7 @@ const PhotoCard = props => {
         <h3 className="date">
           Date:{" "}
           <input
-            value={props.date}
+            value={props.newDate}
             type="date"
             name="selectDate"
             min="01-01-2000"
