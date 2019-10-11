@@ -23,10 +23,30 @@ function getData(date, setData) {
     });
 }
 
+// const TopBar = styled.div`
+//   transition: transform 0.2s ease-in;
+//   background: #99f3eb;
+//   color: black;
+//   width: 200px;
+//   max-height: 350px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-between;
+//   margin-bottom: 20px;
+//   cursor: pointer;
+//   box-shadow: 0px 1px 6px -2px grey;
+
+//   &:hover {
+//     transform: translateY(-5px) scale(1.05);
+//   }
+// `;
+
 export default function PhotoList() {
   const [photo, setPhoto] = useState([]);
 
   const [newDate, setNewDate] = useState();
+  const [color, setColor] = useState("secondary");
 
   useEffect(() => {
     getData(null, setPhoto);
@@ -34,19 +54,21 @@ export default function PhotoList() {
 
   return (
     <div className="spacePhoto">
-      {/* <button onChange={() => setNewDate(value)}>Submit</button>
-       */}
-      {/* {console.log(photo.target.value)}; */}
       <PhotoCard
         key={photo.id}
         title={photo.title}
         url={photo.url}
         date={photo.date}
+        copyright={photo.copyright}
+        explanation={photo.explanation}
         getData={getData}
         newDate={newDate}
         setNewDate={setNewDate}
         setPhoto={setPhoto}
+        color={color}
+        setColor={setColor}
       />
+      }
     </div>
   );
 }
